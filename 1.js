@@ -5,7 +5,9 @@ const windows = [];
 const open = (url) => {
     chrome.runtime.sendMessage(pluginId, {
         type: 'create',
-        url
+        url,
+        h: 900,
+        w: 600
     }, msg => {
         msg && windows.push(msg);
     });

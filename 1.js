@@ -4,7 +4,7 @@ const windows = [];
 
 const open = (url) => {
     chrome.runtime.sendMessage(pluginId, {
-        type: 'open',
+        type: 'create',
         url
     }, msg => {
         console.log(msg);

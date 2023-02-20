@@ -7,7 +7,7 @@ const open = (url) => {
         type: 'create',
         url
     }, msg => {
-        console.log(msg);
+        msg && windows.push(msg);
     });
 };
 

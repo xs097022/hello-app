@@ -4,8 +4,8 @@ const Map = {};
 
 const create = async (config) => new Promise(resolve => chrome.app.window.create('1.html', {
     innerBounds: {
-        width: config.w || (720 / window.devicePixelRatio),
-        height:  config.h || (1280 / window.devicePixelRatio) 
+        width: Math.ceil(config.w || (720 / window.devicePixelRatio)),
+        height:  Math.ceil(config.h || (1280 / window.devicePixelRatio))
     },
     resizable: false,
     frame: 'none'

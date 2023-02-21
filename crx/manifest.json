@@ -11,7 +11,7 @@
         "run_at": "document_end",
         "all_frames": true
     } ],
-    "permissions": ["<all_urls>", "webview", "sockets", "audio", "audioCapture", "videoCapture"],
+    "permissions": ["<all_urls>", "webview", "sockets", "audio", "audioCapture", "videoCapture", "system.display"],
     "sockets": {
         "tcp": {
             "connect": "*"

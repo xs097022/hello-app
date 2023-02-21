@@ -27,7 +27,9 @@ chrome.runtime.onMessageExternal.addListener(async (request, sender, sendRespons
         async create(req) {
             const id = Math.random() * 10000000 >> 0;
             const appWindow = await create(req);
-            req.url && (appWindow.contentWindow.document.getElementById('webview').src = req.url);
+            const webview = appWindow.contentWindow.document.getElementById('webview');
+            webview.setUserAgentOverride('Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/102.0.5005.124');
+            req.url && (webview.src = req.url);
             Map[id] = appWindow;
             appWindow.onClosed.addListener(() => {
                 delete(Map[id]);

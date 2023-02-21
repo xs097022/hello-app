@@ -6,8 +6,8 @@ const open = (url) => {
     chrome.runtime.sendMessage(pluginId, {
         type: 'create',
         url,
-        h: Math.ceil(1280 / window.devicePixelRatio),
-        w:  Math.ceil(720 / window.devicePixelRatio)
+        h: Math.floor(1280 / window.devicePixelRatio),
+        w:  Math.floor(720 / window.devicePixelRatio)
     }, msg => {
         msg && windows.push(msg);
     });

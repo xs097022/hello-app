@@ -3,8 +3,8 @@ console.log('pbledfcfnijoghpdgapfbbghlofgmfmn');
 const Map = {};
 
 const create = async (config) => new Promise(resolve => {
-    const w = Math.ceil(config.w || (720 / window.devicePixelRatio));
-    const h = Math.ceil(config.h || (1280 / window.devicePixelRatio));
+    const w = Math.floor(config.w || (720 / window.devicePixelRatio));
+    const h = Math.floor(config.h || (1280 / window.devicePixelRatio));
     chrome.app.window.create('1.html', {
         innerBounds: {
             width: w,
@@ -14,10 +14,10 @@ const create = async (config) => new Promise(resolve => {
         frame: 'none'
     }, (appWindow) => {
         appWindow.innerBounds.width < w && appWindow.setBounds({
-            height: Math.ceil(h * (appWindow.innerBounds.width / w))
+            height: Math.floor(h * (appWindow.innerBounds.width / w))
         });
         appWindow.innerBounds.height < h && appWindow.setBounds({
-            width: Math.ceil(w * (appWindow.innerBoundsheight / h))
+            width: Math.floor(w * (appWindow.innerBounds.height / h))
         });
         appWindow.contentWindow.onload = function() {
             const webview = appWindow.contentWindow.document.getElementById('webview');

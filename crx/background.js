@@ -2,24 +2,34 @@ console.log('pbledfcfnijoghpdgapfbbghlofgmfmn');
 
 const Map = {};
 
-const create = async (config) => new Promise(resolve => chrome.app.window.create('1.html', {
-    innerBounds: {
-        width: Math.ceil(config.w || (720 / window.devicePixelRatio)),
-        height:  Math.ceil(config.h || (1280 / window.devicePixelRatio))
-    },
-    resizable: false,
-    frame: 'none'
-}, (appWindow) => {
-    appWindow.contentWindow.onload = function() {
-        const webview = appWindow.contentWindow.document.getElementById('webview');
-        webview.addEventListener('permissionrequest', (e) => {
-            if (e.permission === 'media') {
-                e.request.allow();
-            }
+const create = async (config) => new Promise(resolve => {
+    const w = Math.ceil(config.w || (720 / window.devicePixelRatio));
+    const h = Math.ceil(config.h || (1280 / window.devicePixelRatio));
+    chrome.app.window.create('1.html', {
+        innerBounds: {
+            width: w,
+            height: h 
+        },
+        resizable: false,
+        frame: 'none'
+    }, (appWindow) => {
+        appWindow.innerBounds.width < w && appWindow.setBounds({
+            height: Math.ceil(h * (appWindow.innerBounds.width / w))
         });
-        resolve(appWindow);
-    };
-}));
+        appWindow.innerBounds.height < h && appWindow.setBounds({
+            width: Math.ceil(w * (appWindow.innerBoundsheight / h))
+        });
+        appWindow.contentWindow.onload = function() {
+            const webview = appWindow.contentWindow.document.getElementById('webview');
+            webview.addEventListener('permissionrequest', (e) => {
+                if (e.permission === 'media') {
+                    e.request.allow();
+                }
+            });
+            resolve(appWindow);
+        };
+    });
+});
 
 chrome.runtime.onMessageExternal.addListener(async (request, sender, sendResponse) => {
     const req = request || {};

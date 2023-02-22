@@ -4,7 +4,7 @@ const Map = {};
 
 const create = async (config) => new Promise(resolve => {
     const w = Math.floor(config.w || (720 / window.devicePixelRatio));
-    const h = Math.floor(config.h || (1280 / window.devicePixelRatio));
+    const h = Math.floor(config.h || (1280 / window.devicePixelRatio)) + 32;
     chrome.app.window.create('1.html', {
         innerBounds: {
             width: w,
@@ -14,6 +14,7 @@ const create = async (config) => new Promise(resolve => {
             maxWidth: w,
             maxHeight: h
         },
+        frame: 'none',
         resizable: false
     }, (appWindow) => {
         appWindow.contentWindow.onload = function() {

@@ -4,3 +4,4 @@ webview.onloadstop = _ => {
         code: `document.addEventListener('keydown', e => e.key === 'F5' && location.reload());`
     });
 };
+document.querySelector('.top .close').addEventListener('click', _ => window.close());

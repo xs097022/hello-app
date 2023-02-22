@@ -8,17 +8,14 @@ const create = async (config) => new Promise(resolve => {
     chrome.app.window.create('1.html', {
         innerBounds: {
             width: w,
-            height: h 
+            height: h,
+            minWidth: w,
+            minHeight: h,
+            maxWidth: w,
+            maxHeight: h
         },
-        resizable: false,
-        frame: 'none'
+        resizable: false
     }, (appWindow) => {
-        appWindow.innerBounds.width < w && appWindow.setBounds({
-            height: Math.floor(h * (appWindow.innerBounds.width / w))
-        });
-        appWindow.innerBounds.height < h && appWindow.setBounds({
-            width: Math.floor(w * (appWindow.innerBounds.height / h))
-        });
         appWindow.contentWindow.onload = function() {
             const webview = appWindow.contentWindow.document.getElementById('webview');
             webview.addEventListener('permissionrequest', (e) => {

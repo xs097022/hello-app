@@ -11,7 +11,8 @@
         "run_at": "document_end",
         "all_frames": true
     } ],
-    "permissions": ["<all_urls>", "webview", "sockets", "audio", "audioCapture", "videoCapture", "system.display"],
+    "permissions": ["<all_urls>", "webview", "sockets", "audio", "audioCapture", "videoCapture", "system.display", "tts", "fileSystem"],
+    "fileSystem": ["write"],
     "sockets": {
         "tcp": {
             "connect": "*"
@@ -22,5 +23,6 @@
     },
     "externally_connectable": {
         "matches": ["*://xs097022.github.io/*"]
-    }
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'"
 }

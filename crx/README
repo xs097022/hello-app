@@ -1,0 +1,21 @@
+"/insight/brand/queryBrandId" {keyword: '巴马'}
+"/insight/brand/queryBrandIndex" {entityId: '100091411', regionId: 0, stat: true, recentDay: 30}
+
+./conf/server.xml:177:      	    		<Resource driverClassName="com.mysql.jdbc.Driver" maxActive="800" maxIdle="0" minIdle="100" maxWait="-1" name="jdbc/timewalking" password="1QqEG8Mhr7wr0Et7" type="javax.sql.DataSource" url="jdbc:mysql://127.0.0.1:3306/aeas_ex?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true" username="aeas"/>
+var connection = mysql.createConnection({ host: 'localhost', user: 'aeas', password: '1QqEG8Mhr7wr0Et7', database: 'aeas_ex' });
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+host     : 'localhost',
+user     : 'root',
+password : '123456',
+database : 'test'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+        if (error) throw error;
+        console.log('The solution is: ', results[0].solution);
+        });
+
+var x = connection.query('select * from aeas_reg_tree', (e, results, fields) => console.log(results))

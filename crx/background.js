@@ -53,4 +53,14 @@ chrome.runtime.onMessageExternal.addListener(async (request, sender, sendRespons
 });
 
 //103.31.115.50:15987
+//119.252.73.161:15987
 //root / 4Ch435@K7i
+//
+//1677148005 Yu Ting, Kao / Ming Yao, Chen 高郁婷 / 陳酩堯
+//1676539991 Chen yuan lun, Lin his hsien 林錫賢、陳苑倫.doc
+//
+// <Resource driverClassName="com.mysql.jdbc.Driver" maxActive="800" maxIdle="0" minIdle="100" maxWait="-1" name="jdbc/timewalking" password="A5YjkC4H7bK" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/aeasyn?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true" username="root"/>
+// mysql -h127.0.0.1 -uroot -PA5YjkC4H7bK
+//1665204184    1665204206
+//1665204184   1665204206
+// file:/home/webapp/fileupload/icon/1677226901.png
